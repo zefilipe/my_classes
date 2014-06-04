@@ -1,0 +1,51 @@
+
+<patTemplate:tmpl name="page">
+
+	<h1>ALGPDF - Analyze Links and Generate PDF</h1>
+	<h2>Select Content Item to Analyze Links</h2>
+	
+	<script language="javascript" type="text/javascript" src="{JS_URL}/algpdf.js"></script>		
+	
+	<form action="index2.php" method="post" name="select_content">
+		
+		<table border="0" cellpadding="0" cellspacing="1" align="center" bgcolor="#f9f9f9" style="border: solid 1px #d5d5d5; padding: 10px;">
+			<tr><td colspan="2">&nbsp;</td></tr>
+			<tr>
+				<td><b>Contents:</b> &nbsp;&nbsp;</td>
+				<td>
+					<select name="id_content" size="10" class="select" onchange="setNamePdf(this.form,'id_content','name_pdf','submited')">
+						<patTemplate:tmpl name="options_content" src="options.html" type="condition" conditionvar="option_selected" />
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td><b>Name of the pdf:</b> &nbsp;&nbsp;</td>
+				<td>
+					<input type="text" name="name_pdf" value="{NAME_PDF_VALUE}" size="44" onchange="verify_word(this,'Name of the pdf')" onblur="verify_word(this,'Name of the pdf')">
+				</td>
+			</tr>
+			<tr>
+				<td><b>Overwrite pdf ?</b> &nbsp;&nbsp;</td>
+				<td>
+					<select name="overwrite_pdf">
+						<patTemplate:tmpl name="options_overwrite" src="options.html" type="condition" conditionvar="option_selected" />
+					</select>
+				</td>
+			</tr>
+			<tr><td colspan="2">&nbsp;</td></tr>
+			
+			<patTemplate:tmpl name="hiddens" src="hiddens.html" />
+			
+			<patTemplate:tmpl name="note_or_setok" src="note_or_setok.html" type="condition" conditionvar="type" />
+			
+			<tr>
+				<td colspan="2" align="right">
+					<input type="button" name="analyze" value="Analyze Links" onclick="AnalyzeLinks(this.form,'id_content','Contents','name_pdf','Name of the pdf','overwrite_pdf','step','pdf_ok','submited')" class="button">
+				</td>
+			</tr>
+			<tr><td colspan="2">&nbsp;</td></tr>
+		</table>
+
+	</form>
+	
+</patTemplate:tmpl>

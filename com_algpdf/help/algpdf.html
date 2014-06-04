@@ -1,0 +1,114 @@
+<html>
+<head>
+	<title>ALGPDF - help</title>
+	<link href="../../../../help/css/help.css" rel="stylesheet" type="text/css" />
+	<meta name="license" content="http://www.gnu.org/copyleft/gpl.html GNU/GPL" />
+</head>
+<body>
+ 
+	<h1>ALGPDF - Analyze Links and Generate PDF</h1>
+ 
+	This component, given an newsletter, analyze all the links, associated to contents and attachments,<br>
+	and generates the complete pdf, with all information about these newsletter.
+	
+	<p>&nbsp;</p>
+	This component has thee parts:
+	<ul>
+		<li>Analyze Links & Generate PDF</li>
+		<li>Listing of the generated PDFs</li>
+		<li>Configure</li>
+	</ul>
+	
+	<h2>Analyze Links & Generate PDF</h2>
+	<blockquote>
+		<h3>Step 1 - Select Content Item to Analyze Links</h3>
+		<blockquote>
+		
+			This form has the following fields:
+			<ul>
+				<li>
+					<b>Contents</b> - Listbox to specify what content or newsletter is to analyze links.<br>
+					This listbox items can be modified, changing the categories to analyze in configure interface
+				</li>
+				<li>
+					<b>Name of the pdf</b> - Indicates the name of pdf to generated.<br>
+					When select an content, it automaticaly pad this field.<br>
+					This field can contains only letters ([a-z]), numbers ([0-9]) and underscore([_]).
+				</li>
+				<li>
+					<b>Overwrite pdf ?</b> - This fied indicates if you want overwrite this pdf file, specified in the previows field.<br>
+				</li>
+			</ul>	
+			
+			When filled these fields, click in the "Analyse Link" button.
+		
+		</blockquote>
+		
+		<h3>Step 2 - Analyzing Links</h3>
+		<blockquote>
+			In this interface, given the content selected, is analyzed all the links of there (contents and attachements).<br>
+			During the process, its showed a mode verbose, where you can see what it is making.<br>
+			The "continue" button is only enable, after end processing.<br>
+			When processing is ended, click in the "continue" button.	
+		</blockquote>
+		
+		<h3>Step 3 - Listing of the detected links</h3>
+		<blockquote>
+			In this interface, is showed two listings: one to attachements and other to contents.<br>
+			Now, you may specify what items you want append to pdf, but you must have at least one item checked.<br>
+			<b>Tip:</b> If you want select all or none items, check or uncheck the first checkbox, in the headings of each listing.<br>
+			When finished selection, click in the "Generate PDF" button.
+		</blockquote>
+		
+		<h3>Step 4 - Generating PDF</h3>
+		<blockquote>
+			In this interface is generated the pdf.<br>
+			During the process, its showed a mode verbose, where you can see what it is making.<br>
+			The "finish" button is only enable, after end processing.<br>
+			When finished, click in the "finish" button, and it goes to the listing of the pdfs, where you can see the pdfs generated.
+		</blockquote>
+	</blockquote>
+	
+	<h2>Listing of the generated PDFs</h2>
+	<blockquote>
+		In this interface, is showed a listing of the generated pdfs.<br>
+		It list a several properties of the generated pdfs, including the initial content selected.<br>
+		Clicking in the file name, you can view the pdf, in another window.<br>
+		To remove items, check these items, and click in the "Remove" icon in the toolbar.<br>
+		<b>Tip:</b> If you want select all or none items to remove, check or uncheck the first checkbox, in the headings.<br>
+	</blockquote>
+	
+	<h2>Configure /Configuration</h2>
+	<blockquote>
+		In this form, you can customize the settings of this component.<br>
+		This form has the following fields:
+		<ul>
+			<li>
+				<b>Recursive</b> - It indicates if you want analyse only all the links of these newsletter (no), or if you want analyze all the links of these newsletter and the links in its related contents (yes).
+			</li>
+			<li>
+				<b>Verify contents</b> - This field indicates if you want append the related contents to pdf.
+			</li>
+			<li>
+				<b>Verify attachs</b> - This field indicates if you want append the related attachements to pdf.
+			</li>
+			<li>
+				<b>Show categorie</b> - This field indicates if you want append the categories titles, between contens.
+			</li>
+			<li>
+				<b>Path for storing file</b> - Indicates the path where you want store pdfs.<br>
+				It must be equal of the path in Docman component (configurations).
+			</li>
+			<li>
+				<b>Categories to analyze</b> - Indicates what categories you want to list in the step 1 of Analyze Links and Generate PDF.
+			</li>
+		</ul>
+	</blockquote>
+	
+	<p>&nbsp;</p>
+	<p align="center">
+		<a href="#" onclick="window.close()">Close</a>
+	</p>
+ 
+</body>
+</html>

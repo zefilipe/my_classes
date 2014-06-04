@@ -1,0 +1,40 @@
+
+<patTemplate:tmpl name="page">
+
+	<h1>ALGPDF - Analyze Links and Generate PDF</h1>
+	<h2>Generating PDF</h2>
+	
+	<script language="javascript" type="text/javascript" src="{JS_URL}/algpdf.js"></script>		
+	
+	<form action="index2.php" method="post" name="gen">
+		<table border="0" cellpadding="0" cellspacing="1" width="100%">
+			<tr>
+				<td>
+					<table border="0" cellpadding="0" cellspacing="1" align="center" width="40%">
+						<tr>
+							<td><div id="loading_label"><h1 align="center">Loading ...</h1></div></td>
+							<td>
+								<div id="loading_img">
+									<img src="{IMAGES_URL}/loading.gif" border="0" alt="loading">
+								</div>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td align="right">
+					<input type="button" name="finish" value="Finish" class="button" onclick="ChangeLocation(self,'{LOCATION}')" disabled style="color: #888888">
+				</td>			
+			</tr>
+			<tr><td>&nbsp;</td></tr>
+			<tr><td>&nbsp;</td></tr>
+		</table>
+			
+		<patTemplate:tmpl name="hiddens" src="hiddens.html" />
+		
+	</form>
+	
+	<script>window.onload = stopLoading2;</script>
+
+</patTemplate:tmpl>

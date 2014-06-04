@@ -1,0 +1,65 @@
+
+<patTemplate:tmpl name="page">
+
+	<h1>ALGPDF - Analyze Links and Generate PDF</h1>
+	<h2>Configuration</h2>
+
+	<script language="javascript" type="text/javascript" src="{JS_URL}/algpdf.js"></script>		
+	
+	<form action="index2.php" method="post" name="adminForm">
+	
+		<table border="0" cellpadding="0" cellspacing="1" class="adminform" align="center">
+			<tr>
+				<td width="20%"><b>Recursive:</b></td>
+				<td>
+					<select name="recursive">
+						<patTemplate:tmpl name="options_recursive" src="options.html" type="condition" conditionvar="option_selected" />
+					</select>
+				</td>
+			</tr>	
+			<tr>
+				<td><b>Verify contents:</b></td>
+				<td>
+					<select name="verify_contents">
+						<patTemplate:tmpl name="options_verify_cont" src="options.html" type="condition" conditionvar="option_selected" />
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td><b>Verify attachs:</b></td>
+				<td>
+					<select name="verify_attachs">
+						<patTemplate:tmpl name="options_verify_attachs" src="options.html" type="condition" conditionvar="option_selected" />
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td><b>Show categorie:</b></td>
+				<td>
+					<select name="show_cat">
+						<patTemplate:tmpl name="options_show_cat" src="options.html" type="condition" conditionvar="option_selected" />
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td><b>Path for storing files:</b></td>
+				<td>
+					<input type="text" name="path_storefiles" value="{PATH_STOREFILES_VALUE}" size="50" maxlength="80">
+				</td>
+			</tr>
+			<tr>
+				<td valign="top"><b>Categories to analyze:</b></td>
+				<td>
+					<select name="cats[]" multiple size="5" onchange="change_str(this.form,this,'analyze_cats')">
+						<patTemplate:tmpl name="options_cats" src="options.html" type="condition" conditionvar="option_selected" />
+					</select>
+				</td>
+			</tr>
+			<tr><td colspan="2">&nbsp;</td></tr>
+		</table>
+
+		<patTemplate:tmpl name="hiddens" src="hiddens.html" />		
+		
+	</form>
+	
+</patTemplate:tmpl>

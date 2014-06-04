@@ -1,0 +1,45 @@
+
+<patTemplate:tmpl name="page">
+
+	<h1>ALGPDF - Analyze Links and Generate PDF</h1>
+	<h2>Listing of the generated PDFs</h2>
+
+	<script language="javascript" type="text/javascript" src="{JS_URL}/algpdf.js"></script>
+	
+	<form action="index2.php" method="post" name="adminForm">
+		<table border="0" cellpadding="0" cellspacing="1" align="center" class="adminlist">
+			<tr>
+				<th width="20">
+					<input type="checkbox" name="toggle" value="" onclick="checkAll({N_ROWS},'check')">
+				</th>
+				<th>File Name</th>
+				<th>Size</th>
+				<th>Create Time</th>
+				<th>Content</th>
+			</tr>
+			
+			<patTemplate:tmpl name="row">
+			
+				<tr class="{CLASS_NAME}">
+					<td>
+						<input type="checkbox" id="check{POS}" name="cid[]" value="{ID_VALUE}" onclick="isChecked(this.checked)">
+					</td>
+					<td>
+						<a href="javascript:open_window('{PATH_FILES}/{FILE_NAME}',800,600,'view')">
+							{FILE_NAME}
+						</a>
+					</td>
+					<td>{FILE_SIZE}</td>
+					<td>{CREATE_TIME}</td>
+					<td>{TITLE_CONTENT}</td>
+				</tr>
+						
+			</patTemplate:tmpl>			
+			
+		</table>	
+		
+		<patTemplate:tmpl name="hiddens" src="hiddens.html" />
+		
+	</form>
+	
+</patTemplate:tmpl>

@@ -1,0 +1,198 @@
+<?xml version="1.0" ?>
+<mosinstall type="component">
+
+	<!-- General Information -->
+	<name>Algpdf</name>
+	<creationDate>02-06-2008</creationDate>
+	<author>José Filipe Lopes Santos</author>
+	<authorEmail>jfilipe@med.up.pt</authorEmail>
+	<copyright>This component in released under the GNU/GPL License</copyright>
+	<license>http://www.gnu.org/copyleft/gpl.html GNU/GPL</license>	
+	<version>1.0</version>
+	<description>
+		<![CDATA[
+		<b>ALGPDF</b> - <b>A</b>nalyze <b>L</b>inks And <b>G</b>enerate <b>PDF</b>
+		<p>
+		This component, given an newsletter, analyze all the links, associated to contents and attachments,<br>
+		and generates the complete pdf, with all information about these newsletter.
+		<p>
+		This component, has the following functionalities:
+		<ul>
+			<li>Possibilty to configure settings (configuration)
+			<li>Analyze Links and Generate PDF
+			<li>List all pdf's generated
+		</ul>
+		<p>
+		<b>Attention:</b> &nbsp; This component requires the package 
+		<a href="http://www.tufat.com/s_html2ps_html2pdf.htm"><b>html2ps / html2pdf</b></a>
+		]]>
+	</description>
+	
+	<!-- installation queries -->
+	<install>
+		<queries>
+			<query>
+				DROP TABLE IF EXISTS `#__algpdf_conf`;
+			</query>
+			<query>
+				CREATE TABLE `#__algpdf_conf` (
+					`id_conf` int NOT NULL auto_increment PRIMARY KEY,
+					`recursive` tinyint(1) NOT NULL,
+					`verify_contents` tinyint(1) NOT NULL,
+					`verify_attachs` tinyint(1) NOT NULL,
+					`show_cat` tinyint(1) NOT NULL,
+					`path_storefiles` varchar(80) NOT NULL,
+					`analyze_cats` text NOT NULL
+				)
+			</query>
+			<query>
+				INSERT INTO `#__algpdf_conf` (recursive,verify_contents,verify_attachs,show_cat,path_storefiles,analyze_cats)
+				VALUES(1,1,1,1,'/www/fmup/boletim/media/','');
+			</query>
+			<query>
+				DROP TABLE IF EXISTS `#__algpdf_types`;
+			</query>
+			<query>
+				CREATE TABLE `#__algpdf_types` (
+					`id` int NOT NULL PRIMARY KEY,
+					`name` varchar(50) NOT NULL,
+					`descr` text NULL
+				)
+			</query>
+			<query>
+				INSERT INTO `#__algpdf_types` (id,name) VALUES(1,'Content');
+			</query>
+			<query>
+				INSERT INTO `#__algpdf_types` (id,name) VALUES(2,'Attach');
+			</query>
+			<query>
+				DROP TABLE IF EXISTS `#__algpdf_tmp`;
+			</query>
+			<query>
+				CREATE TABLE `#__algpdf_tmp` (
+					`id` int NOT NULL auto_increment PRIMARY KEY,
+					`id_type` int NOT NULL REFERENCES `#__algpdf_types`(`id`),
+					`id_content` int NOT NULL,
+					`title` varchar(100) NULL,
+					`id_cat` int NULL,
+					`title_cat` varchar(100) NULL,
+					`filename` varchar(80) NULL
+				)
+			</query>
+			<query>
+				DROP TABLE IF EXISTS `#__algpdf_pdfs`;
+			</query>
+			<query>
+				CREATE TABLE `#__algpdf_pdfs` (
+					`id` int NOT NULL auto_increment PRIMARY KEY,
+					`file_name` varchar(80) NOT NULL,
+					`file_size` varchar(10) NULL,
+					`file_created` datetime NULL,
+					`id_content` int NOT NULL
+				)
+			</query>
+		</queries>	
+	</install>
+		
+	<!-- Uninstalattion queries -->
+	<uninstall>
+		<queries>
+			<query>
+				DROP TABLE IF EXISTS `#__algpdf_conf`;
+			</query>
+			<query>
+				DROP TABLE IF EXISTS `#__algpdf_types`;
+			</query>
+			<query>
+				DROP TABLE IF EXISTS `#__algpdf_tmp`;
+			</query>
+			<query>
+				DROP TABLE IF EXISTS `#__algpdf_pdfs`;
+			</query>
+		</queries>
+	</uninstall>
+			
+	<!-- adicional installation / uninstallation files -->
+	<installfile>
+		<filename>install.algpdf.php</filename>
+	</installfile>
+	<uninstallfile>
+		<filename>uninstall.algpdf.php</filename>
+	</uninstallfile>
+	
+	<administration>
+	
+		<!-- Add ALGPDF submenu to components menu -->
+		<menu>Algpdf</menu>
+		<submenu>
+			<menu act="analyze_links">Analyze Links &amp; Generate PDF</menu>
+			<menu act="list">Listing of the generated PDFs</menu>
+			<menu act="conf">Configure</menu>
+		</submenu>
+		
+		<!-- Backend files -->
+		<files>
+		
+			<!-- help files -->
+			<filename>help/algpdf.html</filename>
+			
+			<!-- JavaScript Commom functions -->
+			<filename>javascript/algpdf.js</filename>
+			
+			<!-- Libraries / includes -->
+			<filename>lib/db_algpdf.inc</filename>
+			<filename>lib/db_algpdf_conf.inc</filename>
+			<filename>lib/db_algpdf_list.inc</filename>
+			<filename>lib/functions.inc</filename>
+			<filename>lib/html_algpdf.inc</filename>
+			<filename>lib/html_algpdf_common.inc</filename>
+			<filename>lib/html_algpdf_conf.inc</filename>
+			<filename>lib/html_algpdf_list.inc</filename>
+			<filename>lib/pdf_utils.inc</filename>
+			
+			<!-- Templates -->
+			<filename>templates/analyzing_links.html</filename>
+			<filename>templates/category.html</filename>
+			<filename>templates/close_table_contents.html</filename>
+			<filename>templates/close_td_content.html</filename>
+			<filename>templates/footer.html</filename>
+			<filename>templates/footer_newsletter.html</filename>
+			<filename>templates/form_configuration.html</filename>
+			<filename>templates/form_select_content.html</filename>
+			<filename>templates/generating_pdf.html</filename>
+			<filename>templates/header.html</filename>
+			<filename>templates/header_newsletter.html</filename>
+			<filename>templates/hiddens.html</filename>
+			<filename>templates/listing_links.html</filename>
+			<filename>templates/listing_pdfs.html</filename>
+			<filename>templates/note_or_setok.html</filename>
+			<filename>templates/open_table_contents.html</filename>
+			<filename>templates/open_td_content.html</filename>
+			<filename>templates/options.html</filename>
+			<filename>templates/title_content.html</filename>
+			
+			<!-- Directory of the temporary files, used to generate pdf -->
+			<filename>tmp/readme.txt</filename>
+						
+			<!-- admin scripts -->
+			<filename>admin.algpdf.php</filename>
+			<filename>admin.algpdf.html.php</filename>
+			
+			<!-- configurations -->
+			<filename>config.algpdf.php</filename>
+			
+			<!-- toolbar -->
+			<filename>toolbar.algpdf.php</filename>
+			<filename>toolbar.algpdf.html.php</filename>
+			
+		</files>
+		
+		<!-- Backed images -->
+		<images>
+			<filename>images/dot.gif</filename>
+			<filename>images/loading.gif</filename>
+		</images>
+		
+	</administration>
+
+</mosinstall>
