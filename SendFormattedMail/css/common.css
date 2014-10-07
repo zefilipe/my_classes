@@ -1,0 +1,204 @@
+
+/********** Formulários *************/
+
+/* label */
+.label {
+	color : #ffffff;
+	font-weight : bold;
+	background-color : #49758d;
+	padding: 2px 5px 2px 5px;
+}
+
+/* background das células com os campos */
+.bg_cell_field {
+	background-color : #e8eef1;
+	padding: 2px 5px 2px 5px;
+}
+
+/* campos */
+.fields {
+	border-width : 1px;
+	font-family: Verdana, Tahoma, Arial, Helvetica;
+	font-size: 100%;	
+	background-color : #ffffff;
+}
+
+/* botões **/
+.buttons {
+	font-family: Verdana, Tahoma, Arial, Helvetica;
+	font-size: 95%;	
+	font-weight : bold;
+	color : #49758d;
+	border-width : 1px;
+	border-color : #49758d;
+	background-color : #ffffff;
+}
+
+/* Margens do popup (para o auto resize) */
+.popup_margins {
+	padding: 10px 10px 10px 10px;
+}
+
+
+/********** Textos *************/
+
+/* Highlight (destacar) de palavras */
+.highlight {
+	color: #005179;
+}
+
+/* Classes tipo semáforos: verde - tá bom; amarelo - cuidado; vermelho - perigo */
+.fg_green {
+	color: #005900;	
+}
+.fg_yellow {
+	color: #e1b400;	
+}
+.fg_red {
+	color: #850000;	
+}
+
+
+/********* Cabeçalhos *************/
+.heading {
+	background-color: #49758d;
+	color: #ffffff;
+	font-weight: bold;
+	padding: 2px 5px 2px 5px;
+	text-align: center;
+}
+
+
+/********* Classes de alternância *************/
+
+/* classe em tom de azul claro */
+.row_blue	 {
+	color : #000000;
+	text-align : center;
+	background-color : #e8eef1;
+	padding : 6px 5px 6px 5px;
+}
+
+/* classe em branco */
+.row_white {
+	color : #000000;
+	text-align : center;
+	padding : 6px 5px 6px 5px;	
+}
+
+/* classe com os totais */
+.row_total {
+	color : #000000;
+	text-align : center;
+	padding : 6px 5px 6px 5px;		
+	border-top: 3px double #000000;
+}
+
+/* linha destacada */
+.row_destak {
+	color : #000000;
+	text-align : center;
+	background-color : #FFCFB2;
+	padding : 6px 5px 6px 5px;	
+}
+
+
+/************** Grupos *********/
+
+/* moldura para agrupar items */
+.group_box {
+	vertical-align: top;
+	border: 2px solid #000000;
+	padding: 5px;
+}
+
+/* título do grupo */
+.group_title {
+	background-color: #49758d;
+	color: #ffffff;
+	font-weight: bold;
+	padding: 2px 5px 2px 5px;
+	text-align: center;	
+	font-size: 110%;	
+}
+
+
+/************ Misc **************/
+
+/* linha com pontinhos */
+.line_dotted {
+	background: transparent url(../images/dots.gif) repeat-x scroll left center;
+}
+
+/* Alargar coluna */
+/* Alargar a coluna, de modo a que fique + ou - com o mesmo espaço só com texto, do que tivesse caixas de texto */
+.wide_col {
+	padding-left: 280px;
+}
+
+/* linha para assinar */
+.line_sign {
+	border-bottom: 1px solid #000000;
+}
+
+/* célula com a label assinatura */
+.cell_sign {
+	text-align: right;
+	font-weight: bold;
+	padding-right: 10px;
+}
+
+/* hint / dica */
+.hint {
+	display: inline;
+	background-color: #ffffff;
+	padding: 1px 5px 1px 5px;
+	border: 1px solid #25546E;
+	border-radius: 5px;
+	-moz-border-radius: 5px;	
+	-webkit-border-radius: 5px;
+}
+
+.no_hint {
+	display: none;
+}
+
+/*************** Tooltip ************/
+
+/* tooltip styling */
+.tooltip {
+	display:none;
+	background-color: #e8eef1;
+	padding:10px 10px 10px 10px;
+	border: 1px solid #25546E;
+	font-size:11px;
+	color:#fff;	
+	max-height: 200px;
+	overflow: auto;
+
+	/* IE to fix min-height bug */
+	height: expression( document.body.clientHeight > 200 ? "200px" : "auto" );	
+}
+
+
+/************** Agenda ***********/
+
+#div_container {
+	height: 600px;
+}
+
+#div_calendar {
+	float: left;
+	width: 180px;
+	height: 100%;
+	padding-left: 10px;
+	padding-right: 10px;	
+}
+
+#div_content {
+	height: 100%;
+	padding-left: 210px;
+	padding-right: 10px;
+}
+
+

@@ -1,0 +1,43 @@
+
+<form name="tt" method="POST">
+    <!-- tabela principal do formulário -->
+    <table border="0" cellspacing="1" cellpadding="0" align="center">						
+        <tr>								
+            <td class="label">Name: &nbsp;<sup>{symbol_name}</sup></td>
+            <td class="bg_cell_field">
+                <input type="text" name="name" value="{name_value}" size="50" class="fields">							
+            </td>
+	</tr>
+        <tr>								
+            <td class="label">Email: &nbsp;<sup>{symbol_email}</sup></td>
+            <td class="bg_cell_field">
+                <input type="text" name="email" value="{email_value}" size="50" class="fields">							
+            </td>
+	</tr>
+        <tr>								
+            <td class="label">Subject:</td>
+            <td class="bg_cell_field">
+                <input type="text" name="subject" value="{subject_value}" size="50" class="fields">							
+            </td>
+	</tr>
+        <tr>								
+            <td class="label">Message:</td>
+            <td class="bg_cell_field">
+                <textarea name="message" class="fields" rows="5" cols="70">{message_value}</textarea>
+            </td>
+	</tr>
+	<tr><td colspan="2">&nbsp;</td></tr>
+		
+	{block_note}
+		
+	<tr>
+            <td align="right" colspan="2">
+                <input type="submit" name="submit" value="Send" class="buttons">
+		&nbsp;
+		<input type="reset" value="Reset" class="buttons">
+            </td>
+	</tr>		
+    
+    </table>
+		
+</form>

@@ -1,0 +1,241 @@
+body {
+	background-color : #00415b;
+	margin: 0px;
+	padding: 4px 0px 0px 0px;
+	font-family: Verdana, Tahoma, Arial, Helvetica;
+	font-size: 70%;
+	color: #000000;
+}
+
+
+.iframe {
+	height: 100%;
+}
+
+a {
+    color: #a23c00;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #a23c00;
+    text-decoration: underline;
+}
+
+a:visited {
+    color: #ff6600;
+}
+
+
+table {
+	font-size: 100%;
+}
+
+th {
+	background: url(../images/bg_tit1.gif) repeat top left;
+	font-weight: bold;
+	color: #005179;
+	text-align: left;
+}
+
+.cab {
+	border-bottom: 1px solid #49758d;
+}
+
+.esq {
+	background: #00415b url(../images/bg_sides.gif) repeat top left;
+}
+
+.branco {
+	background: #ffffff url(../images/bg_body.gif) repeat-y center;
+}
+
+.branco2 {
+	background-color: #ffffff;
+}
+
+.moldura {
+	padding: 0px 2px 0px 2px;
+	margin: 0px 5px 0px 5px;
+}
+
+.moldura2 {
+	padding: 0px 2px 0px 2px;
+	margin: 0px 5px 0px 5px;
+	border-top: 1px solid #d9e3e7;
+}
+
+.barra {
+	border-top: 4px solid #ffdc00;
+}
+
+.tit1container {
+	padding: 20px 0px 2px 1px;
+}
+
+.tit2container {
+	background-color: #e9eff1;
+	padding: 20px 0px 2px 0px;
+}
+
+.titulo1 {
+	background-color: #92abba;
+	font-weight: bold;
+	color: #ffffff;
+	padding: 6px 30px 3px 30px;
+}
+
+.titulo2 {
+	background-color: #49758d;
+	font-weight: bold;
+	color: #ffffff;
+	padding: 6px 30px 3px 30px;
+}
+
+.titulo_inside {
+	color: #92abba;
+	padding: 30px 41px 5px 41px;
+}
+
+.titulo_inside_prin {
+	font-size: 120%;
+	font-weight: bold;
+	color: #005179;
+	text-transform: uppercase;
+}
+
+.canvas1 {
+	padding: 0px 30px 40px 30px;
+	line-height: 130%;
+	vertical-align : top;
+}
+
+.canvas2 {
+	background: url(../images/bg_news.gif) repeat-x top left;
+	padding: 0px 30px 60px 30px;
+	line-height: 130%;
+	vertical-align : top;
+}
+
+.canvas_inside {
+	padding: 15px 40px 70px 40px;
+	line-height: 170%;
+	text-align: justify;
+	vertical-align : top;
+}	
+
+/* estas duas linhas seguintes servem para corrigir o estupido bug dos italicos, no ie*/
+*html .canvas_inside {
+	overflow: hidden;
+	width: 591px;
+}
+
+.maiscontainer {
+	background: url(../images/seta_all.gif) no-repeat left;
+}
+
+.mais {
+	background-color: #ebf0f2;
+	font-weight: bold;
+	font-size : 90%;
+	line-height: 100%;
+	margin-left: 18px;
+	padding: 2px 0px 2px 5px;
+	height: 15px;
+}
+
+.dt1 {
+	color: #49758d;
+	padding: 3px 0px 3px 8px;
+	text-align: left;
+	font-size: 105%;
+	margin-left: -8px;
+	border-bottom: 1px solid #d9e3e7;
+}
+
+.dt2 {
+	background-color: #49758d;
+	color: #ffffff;
+	font-weight: bold;
+	padding: 1px 0px 1px 8px;
+	margin-left: -8px;
+	text-align: left;
+	font-size: 105%;
+}
+
+.dd1 {
+	background: url(../images/bg_dd.gif) repeat-x bottom left;
+	text-align: left;
+	margin-left: -8px;
+	padding: 3px 0px 3px 8px;
+}
+
+.dd2 {
+	background: url(../images/bg_tit1.gif) repeat top left;
+	text-align: left;
+	font-size: 90%;
+	margin: 1px 0px 1px -8px;
+	padding-left: 8px;
+}
+
+.dd3 {
+	background: url(../images/bg_dd.gif) repeat-x bottom left;
+	text-align: right;
+	line-height: 150%;
+	margin-left: -8px;
+	padding-right: 4px;
+}
+
+.lista {
+	text-align: justify;
+	margin-bottom: 2em;
+}
+
+.caixa {
+	background: #f8fafb url(../images/bg_destaques.gif) no-repeat bottom right;
+	padding: 15px;
+	border: solid 1px #ffffff;
+}
+
+.sombra {
+	background: url(../images/sombra.png) no-repeat top right;
+	height: 5px;
+}
+
+.copy {
+	font-family: arial, helvetica;
+	font-size: 10px;
+	color: #92abba;
+	padding: 5px 42px 20px 42px;
+}
+
+.topo {
+	background: url(../images/bg_tit1.gif) repeat top left;
+	padding: 4px 40px 4px 0px;
+	margin: 0px 8px 2px 8px;
+	font-weight: bold;
+	text-align: right;
+}
+
+.topo_int {
+	font-weight: bold;
+	text-align: right;
+}
+
+.footer {
+	color: #ffffff;
+	font-family: Arial, sans-serif;
+	font-size : 80%;
+	text-align: right;
+	white-space: nowrap;
+	padding: 6px 10px 6px 0px;
+	border-top: 1px solid #49758d;
+}
+
+.just {
+	text-align: justify;
+}
+
+.direita {
+	text-align: right;
+}
