@@ -1,42 +1,32 @@
 <?php
 
-/* form with
- * name
- * email
- * subject
- * message
- * 
- * send to mail ....
- */
-
-
 /**
  * Send ticket by email.
  * 
- * @author JosÈ Filipe Lopes Santos <jfilipe@med.up.pt>
+ * @author Jos√© Filipe Lopes Santos <jfilipe@med.up.pt>
  * @since 09-05-2012
- * @version 1.0 - data da ˙lt. actualizaÁ„o: 10-05-2012
+ * @version 1.0 - data da √∫lt. actualiza√ß√£o: 10-05-2012
  */
 
 require_once 'conf/core.inc';
 require_once 'lib/sendmail.inc';
 
 /* ---------------------------------- oOo --------------------------------
-                             InicializaÁ„o de vari·veis
+                             Inicializa√ß√£o de vari√°veis
    ---------------------------------- oOo -------------------------------- */
 
 if (empty($name)) $name = ""; 
 if (empty($email)) $email = ""; 
 if (empty($subject)) $subject = "";
 if (empty($message)) $message = "";
-if (empty($note_empty)) $note_empty = false; // booleano que indica se existem campos obrigatÛrios por preencher
+if (empty($note_empty)) $note_empty = false; // booleano que indica se existem campos obrigat√≥rios por preencher
 if (empty($error_msg)) $error_msg = ""; // mensagem de erro
-if (empty($sended)) $sended = "no"; // indica se j· foi enviado ou n„o o ticket por email
+if (empty($sended)) $sended = "no"; // indica se j√° foi enviado ou n√£o o ticket por email
 if (empty($title)) $title = "Send a ticket";
 
 
 /* ---------------------------------- oOo --------------------------------
-             Verificar se existem campos obrigatÛrios por preencher
+             Verificar se existem campos obrigat√≥rios por preencher
    ---------------------------------- oOo -------------------------------- */
 
 if (!empty($submit) && ($name == "" || $email == ""))
@@ -51,11 +41,11 @@ else
 
 if (!empty($submit) && !$note_empty && $error_msg == ""){
 
-	// remetente / de e destinat·rio / para
+	// remetente / de e destinat√°rio / para
 	$from = "Trouble Tickets (tts) <tts@med.up.pt>";
         $to = "jfilipe@med.up.pt";
 
-	// criar uma nova inst‚nca da classe para enviar mails
+	// criar uma nova inst√¢nca da classe para enviar mails
 	$sm = new sendmail(CRLF);
 
 	// adicionar template
@@ -68,7 +58,7 @@ if (!empty($submit) && !$note_empty && $error_msg == ""){
         // adicionar imagem
         $sm->addImage("images/cabecalho.gif","image/gif","cabecalho.gif");
                 
-	// determinar os cabeÁalhos
+	// determinar os cabe√ßalhos
 	$subject_mail = "Ticket: ".$subject;        
 	$headers = array("From" => $from, "Subject" => $subject_mail);
 
@@ -104,7 +94,7 @@ $t->setFile(array("page" => "page.html",
 		  "note2" => "note_without_table.html"));				  				  
 
 
-//*********** P·gina (inÌcio) *************
+//*********** P√°gina (in√≠cio) *************
 $t->setVar(array("rooturl" => ROOT_URL, "titulo" => $title));
 
 
@@ -122,7 +112,7 @@ if (ereg("yes",$sended)){ // enviado
     if (!empty($submit) && $email == "") $t->setVar("symbol_email",SYMBOL_EMPTY);
     else $t->setVar("symbol_email",SYMBOL_NORMAL);
 
-    /////// setar vari·veis //////
+    /////// setar vari√°veis //////
     $t->setVar(array("name_value" => $name,
                      "email_value" => $email,
                      "subject_value" => $subject,
@@ -136,12 +126,12 @@ if (ereg("yes",$sended)){ // enviado
             $t->parse("block_note","note2",true);
     }
 
-    //********** formul·rio (fim) **********
+    //********** formul√°rio (fim) **********
     $t->parse("block_body","form",true);
 
 }
 
-//*********** P·gina (fim) *************
+//*********** P√°gina (fim) *************
 $t->pparse("output","page");
 
 ?>
